@@ -12,7 +12,7 @@ body {
 }
 
 div.compass {
-  font-size: 48px;
+  font-size: 60px;
 
   /* CSS Flexbox */
   align-items: center;
@@ -60,7 +60,7 @@ span.direction {
 
 div.vicinity {
   color: rgb(255,255,255);
-  font-size: 28px;
+  font-size: 36px;
 
   /* CSS Flexbox */
   align-items: flex-start;
@@ -76,7 +76,7 @@ span.street {
 */
 
 span.zone {
-  font-size: 24px;
+  font-size: 30px;
   position: relative;
   top: -3px;
 }
