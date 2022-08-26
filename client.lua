@@ -14,7 +14,7 @@ local veh = 0;
 
 Citizen.CreateThread(function()
 	while true do
-		local ped = GetPlayerPed(-1);
+		local ped = PlayerPedId();
 		local veh = GetVehiclePedIsIn(ped, false);
 
 		local coords = GetEntityCoords(ped);
@@ -23,7 +23,7 @@ Citizen.CreateThread(function()
 		local var1, var2 = GetStreetNameAtCoord(coords.x, coords.y, coords.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger())
 		local hash1 = GetStreetNameFromHashKey(var1);
 		local hash2 = GetStreetNameFromHashKey(var2);
-		local heading = GetEntityHeading(PlayerPedId());
+		local heading = GetEntityHeading(ped);
 
 		for k, v in pairs(directions) do
 			if (math.abs(heading - v) < 22.5) then
