@@ -55,19 +55,13 @@ Citizen.CreateThread(function()
 		if (config.position.x == nil or config.position.x == '') then config.position.x = 17.55 end
 		if (config.position.y == nil or config.position.y == '') then config.position.y = 3 end
 
-		if (config.vehicleCheck == false) then
+		if IsScreenFadedOut() or IsPauseMenuActive() or IsHudHidden() then
 			SendNUIMessage({
 				type = 'open',
-				active = true,
-				color = configColor,
-				direction = heading,
-				posX = config.position.x,
-				posY = config.position.y,
-				street = hash1,
-				zone = street2
+				active = false
 			})
 		else
-			if (veh ~= 0) then
+			if (config.vehicleCheck == false) then
 				SendNUIMessage({
 					type = 'open',
 					active = true,
@@ -79,10 +73,23 @@ Citizen.CreateThread(function()
 					zone = street2
 				})
 			else
-				SendNUIMessage({
-					type = 'open',
-					active = false
-				})
+				if (veh ~= 0) then
+					SendNUIMessage({
+						type = 'open',
+						active = true,
+						color = configColor,
+						direction = heading,
+						posX = config.position.x,
+						posY = config.position.y,
+						street = hash1,
+						zone = street2
+					})
+				else
+					SendNUIMessage({
+						type = 'open',
+						active = false
+					})
+				end
 			end
 		end
 
